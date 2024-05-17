@@ -3,6 +3,8 @@ let resetBtn = document.querySelector("#reset-btn");
 let newGameBtn = document.querySelector("#new-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
+let container=document.querySelector(".container");
+let h1text=document.querySelector("h1");
 
 let turnO = true; //playerX, playerO
 let count = 0; //To Track Draw
@@ -23,6 +25,9 @@ const resetGame = () => {
   count = 0;
   enableBoxes();
   msgContainer.classList.add("hide");
+  container.classList.remove("hide");
+  h1text.classList.remove("hide");
+  resetBtn.classList.remove("hide");
 };
 
 boxes.forEach((box) => {
@@ -69,6 +74,9 @@ const enableBoxes = () => {
 const showWinner = (winner) => {
   msg.innerText = `Congratulations, Winner is ${winner}`;
   msgContainer.classList.remove("hide");
+  container.classList.add("hide");
+  h1text.classList.add("hide");
+  resetBtn.classList.add("hide");
   disableBoxes();
 };
 
